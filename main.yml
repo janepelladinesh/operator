@@ -2,7 +2,7 @@
 - name: start memcached
   k8s:
     definition:
-      kind: Deployment
+      kind: service
       apiVersion: apps/v1
       metadata:
         name: '{{ meta.name }}-memcached'
@@ -22,13 +22,3 @@
               image: "{{images}}"
               ports:
                 - containerPort: 5000
-      kind: service  
-      apiVersion: v1
-      metadata:
-        name: '{{ meta.name }}-memcached'
-        namespace: '{{ meta.namespace }}'
-      ports:
-      - name: web
-        port: 5000
-        protocol: TCP
-        target_port: 5000
