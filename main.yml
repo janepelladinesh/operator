@@ -1,3 +1,4 @@
+---
 - name: start memcached
   k8s:
     definition:
@@ -17,6 +18,7 @@
               app: memcached
           spec:
             containers:
-              image: "{{image}}"
+            - name: memcached
+              image: "{{images}}"
               ports:
                 - containerPort: 5000
