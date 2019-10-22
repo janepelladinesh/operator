@@ -22,3 +22,8 @@
               image: "{{images}}"
               ports:
                 - containerPort: 5000
+    definition:
+      kind: Service
+      apiVersion: apps/v1
+      metadata:
+        name: '{{ meta.name }}-memcached'
