@@ -22,8 +22,13 @@
               image: "{{images}}"
               ports:
                 - containerPort: 5000
-      kind: Service  
+      kind: service  
       apiVersion: v1
       metadata:
         name: '{{ meta.name }}-memcached'
         namespace: '{{ meta.namespace }}'
+      ports:
+      - name: web
+        port: 5000
+        protocol: TCP
+        target_port: 5000
