@@ -26,3 +26,4 @@
       apiVersion: v1
       metadata:
         name: '{{ meta.name }}-memcached'
+        namespace: '{{ meta.namespace }}'
