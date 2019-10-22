@@ -17,13 +17,6 @@
               app: memcached
           spec:
             containers:
-            - name: memcached
-              command:
-              - memcached
-              - -m=64
-              - -o
-              - modern
-              - -v
               image: "{{image}}"
               ports:
-                - containerPort: 11211
+                - containerPort: 5000
