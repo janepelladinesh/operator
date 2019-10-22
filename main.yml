@@ -22,3 +22,21 @@
               image: "{{images}}"
               ports:
                 - containerPort: 5000
+- name: Create the  service
+  k8s:
+    definition:
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: service
+        namespace: '{{ meta.namespace }}'
+        labels:
+          app: memcached
+      spec:
+        ports:
+        - name: web
+          port: 5000
+          protocol: TCP
+          targetPort: 5000
+        selector:
+          app: memcached
