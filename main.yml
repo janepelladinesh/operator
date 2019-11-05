@@ -19,7 +19,7 @@
           spec:
             containers:
             - name: memcached
-              image: "{{images}}"
+              image: docker.io/poroko/flask-demo-app:latest
               ports:
                 - containerPort: 5000
 - name: Create the  service
